@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card mt-4">
+    <div class="card-header">
+        <h4 class="card-title">List of IoT Devices</h4>
+    </div>
+    <div class="card-body">
+        <form class="form-inline mb-4" method="GET" action="/">
+            <input type="text" name="search" class="form-control mr-2" placeholder="Search devices...">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Hostname</th>
+                        <th>Site</th>
+                        <th>Serial Number</th>
+                        <th>Division</th>
+                        <th>Instrument Type</th>
+                        <th>Lab Number</th>
+                        <th>IP Subnet</th>
+                        <th>Owner Name</th>
+                        <th>Owner Contact</th>
+                        <th>Ping</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for device in devices %}
+                    <tr>
+                        <td>{{ device.hostname }}</td>
+                        <td>{{ device.site }}</td>
+                        <td>{{ device.serial_number }}</td>
+                        <td>{{ device.division }}</td>
+                        <td>{{ device.instrument_type }}</td>
+                        <td>{{ device.lab_number }}</td>
+                        <td>{{ device.ip_subnet }}</td>
+                        <td>{{ device.owner_name }}</td>
+                        <td>{{ device.owner_contact }}</td>
+                        <td>
+                            <a href="{{ url_for('ping_device', ip_subnet=device.ip_subnet) }}" class="btn btn-sm btn-outline-success">
+                                Ping
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
