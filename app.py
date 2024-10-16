@@ -1,13 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
-import os
-import pandas as pd
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
+
+# Make sure you set a secret key for CSRF protection
+app.config['SECRET_KEY'] = 'supersecretkey'  # Ensure this is set and kept secret in production
+
+# Initialize CSRF protection
+csrf = CSRFProtect(app)
+
+# Database setup
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///devices.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['UPLOAD_FOLDER'] = 'uploads/'
-app.secret_key = 'supersecretkey'
 db = SQLAlchemy(app)
 
 # Device model
@@ -24,16 +29,40 @@ class Device(db.Model):
     owner_contact = db.Column(db.String(100), nullable=False)
     configuration_details = db.Column(db.Text, nullable=True)
 
-    def __repr__(self):
-        return f'<Device {self.hostname}>'
-
-# Home route to list all devices
+# Route to list all devices
 @app.route('/')
 def list_devices():
     devices = Device.query.all()
     return render_template('list_devices.html', devices=devices)
 
-# Route to add new device manually
+# Route to edit a device
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit_device(id):
+    device = Device.query.get_or_404(id)
+
+    if request.method == 'POST':
+        device.hostname = request.form['hostname']
+        device.site = request.form['site']
+        device.serial_number = request.form['serial_number']
+        device.division = request.form['division']
+        device.instrument_type = request.form['instrument_type']
+        device.lab_number = request.form['lab_number']
+        device.ip_subnet = request.form['ip_subnet']
+        device.owner_name = request.form['owner_name']
+        device.owner_contact = request.form['owner_contact']
+        device.configuration_details = request.form['configuration_details']
+
+        try:
+            db.session.commit()
+            flash('Device updated successfully!', 'success')
+            return redirect(url_for('list_devices'))
+        except Exception as e:
+            db.session.rollback()
+            flash(f'Error updating device: {e}', 'danger')
+
+    return render_template('edit_device.html', device=device)
+
+# Route to add a new device manually
 @app.route('/add', methods=['GET', 'POST'])
 def add_device():
     if request.method == 'POST':
@@ -65,7 +94,7 @@ def add_device():
 
     return render_template('add_device.html')
 
-# Route to upload CSV and insert devices from CSV
+# Route to upload devices via CSV
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_csv():
     if request.method == 'POST':
@@ -104,32 +133,12 @@ def upload_csv():
             # Optionally delete the uploaded file after processing
             os.remove(filepath)
 
-        return redirect(url_for('upload_csv'))
+        return redirect(url_for('list_devices'))
 
     return render_template('upload.html')
 
 
-@app.route('/ping/<string:ip_subnet>', methods=['GET'])
-def ping_device(ip_subnet):
-    try:
-        response_time = ping(ip_subnet)  # Ping the device's IP address
-        if response_time:
-            flash(f'Device at {ip_subnet} is reachable (Response Time: {response_time:.2f}ms)', 'success')
-        else:
-            flash(f'Device at {ip_subnet} is unreachable', 'danger')
-    except Exception as e:
-        flash(f"An error occurred while pinging: {e}", 'danger')
-
-    return redirect(url_for('list_devices'))
-
-
 if __name__ == '__main__':
-    # Ensure uploads folder exists
-    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-    
-    # Initialize the database
     with app.app_context():
         db.create_all()
-
-    # Run the Flask app
     app.run(debug=True)

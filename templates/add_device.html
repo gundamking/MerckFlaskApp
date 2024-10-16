@@ -1,70 +1,49 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card mt-4">
-    <div class="card-header">
-        <h4 class="card-title">Add New IoT Device</h4>
+<h2>Add New Device</h2>
+<form method="POST" action="/add">
+    {{ csrf_token() }}  <!-- Ensure CSRF token is included if CSRF protection is enabled -->
+    <div class="form-group">
+        <label for="hostname">Hostname</label>
+        <input type="text" class="form-control" id="hostname" name="hostname" required>
     </div>
-    <div class="card-body">
-        <form method="POST" action="/add">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="hostname">Hostname</label>
-                    <input type="text" class="form-control" id="hostname" name="hostname" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="site">Site</label>
-                    <input type="text" class="form-control" id="site" name="site" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="serial_number">Serial Number</label>
-                    <input type="text" class="form-control" id="serial_number" name="serial_number" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="division">Division</label>
-                    <input type="text" class="form-control" id="division" name="division" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="instrument_type">Instrument Type</label>
-                    <input type="text" class="form-control" id="instrument_type" name="instrument_type" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="lab_number">Lab Number</label>
-                    <input type="text" class="form-control" id="lab_number" name="lab_number" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="ip_subnet">IP Subnet</label>
-                    <input type="text" class="form-control" id="ip_subnet" name="ip_subnet" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="owner_name">Owner Name</label>
-                    <input type="text" class="form-control" id="owner_name" name="owner_name" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="owner_contact">Owner Contact (Email)</label>
-                    <input type="email" class="form-control" id="owner_contact" name="owner_contact" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="configuration_details">Configuration Details</label>
-                <textarea class="form-control" id="configuration_details" name="configuration_details" rows="4"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Add Device</button>
-        </form>
+    <div class="form-group">
+        <label for="site">Site</label>
+        <input type="text" class="form-control" id="site" name="site" required>
     </div>
-</div>
+    <div class="form-group">
+        <label for="serial_number">Serial Number</label>
+        <input type="text" class="form-control" id="serial_number" name="serial_number" required>
+    </div>
+    <div class="form-group">
+        <label for="division">Division</label>
+        <input type="text" class="form-control" id="division" name="division" required>
+    </div>
+    <div class="form-group">
+        <label for="instrument_type">Instrument Type</label>
+        <input type="text" class="form-control" id="instrument_type" name="instrument_type" required>
+    </div>
+    <div class="form-group">
+        <label for="lab_number">Lab Number</label>
+        <input type="text" class="form-control" id="lab_number" name="lab_number" required>
+    </div>
+    <div class="form-group">
+        <label for="ip_subnet">IP Subnet</label>
+        <input type="text" class="form-control" id="ip_subnet" name="ip_subnet" required>
+    </div>
+    <div class="form-group">
+        <label for="owner_name">Owner Name</label>
+        <input type="text" class="form-control" id="owner_name" name="owner_name" required>
+    </div>
+    <div class="form-group">
+        <label for="owner_contact">Owner Contact</label>
+        <input type="email" class="form-control" id="owner_contact" name="owner_contact" required>
+    </div>
+    <div class="form-group">
+        <label for="configuration_details">Configuration Details</label>
+        <textarea class="form-control" id="configuration_details" name="configuration_details" rows="4"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Device</button>
+</form>
 {% endblock %}
