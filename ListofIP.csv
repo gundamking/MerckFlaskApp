@@ -1,0 +1,16 @@
+﻿hostname,site,serial_number,division,instrument_type,lab_number,ip_subnet,owner_name,owner_contact,configuration_details
+Device01,New York,SN001,Engineering,Temperature Sensor,Lab01,192.168.1.10,John Doe,johndoe@example.com,Config details for Temperature Sensor.
+Device02,San Francisco,SN002,Research,Pressure Gauge,Lab02,192.168.2.10,Jane Smith,janesmith@example.com,Config details for Pressure Gauge.
+Device03,London,SN003,Chemistry,Humidity Sensor,Lab03,192.168.3.10,Michael Brown,michaelb@example.com,Config details for Humidity Sensor.
+Device04,Tokyo,SN004,Physics,Light Meter,Lab04,192.168.4.10,Emily Davis,emilyd@example.com,Config details for Light Meter.
+Device05,Berlin,SN005,Biology,Sound Sensor,Lab05,192.168.5.10,Sarah Wilson,sarahw@example.com,Config details for Sound Sensor.
+Device06,Toronto,SN006,Engineering,pH Meter,Lab06,192.168.6.10,Robert Taylor,robertt@example.com,Config details for pH Meter.
+Device07,Sydney,SN007,Research,Thermocouple,Lab07,192.168.7.10,Alice Johnson,alicej@example.com,Config details for Thermocouple.
+Device08,Singapore,SN008,Chemistry,CO2 Detector,Lab08,192.168.8.10,David Martinez,davidm@example.com,Config details for CO2 Detector.
+Device09,Dubai,SN009,Physics,Flow Meter,Lab09,192.168.9.10,Nancy Lee,nancyl@example.com,Config details for Flow Meter.
+Device10,Paris,SN010,Biology,Motion Detector,Lab10,192.168.10.10,Brian Carter,brianc@example.com,Config details for Motion Detector.
+Device11,Sao Paulo,SN011,Engineering,Pressure Sensor,Lab11,192.168.11.10,Megan Lopez,meganl@example.com,Config details for Pressure Sensor.
+Device12,Mumbai,SN012,Research,O2 Sensor,Lab12,192.168.12.10,Samuel Baker,samuelb@example.com,Config details for O2 Sensor.
+Device13,Cape Town,SN013,Chemistry,Liquid Flow Sensor,Lab13,192.168.13.10,Hannah Green,hannahg@example.com,Config details for Liquid Flow Sensor.
+Device14,Moscow,SN014,Physics,Gas Analyzer,Lab14,192.168.14.10,Olivia White,oliviaw@example.com,Config details for Gas Analyzer.
+Device15,Hong Kong,SN015,Biology,Temperature Logger,Lab15,192.168.15.10,Jacob King,jacobk@example.com,Config details for Temperature Logger.
