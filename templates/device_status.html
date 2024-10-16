@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Status for Device: {{ device.hostname }}</h2>
+
+<p><strong>IP Address:</strong> {{ device.ip_address }}</p>
+<p><strong>SSH Username:</strong> {{ device.ssh_username }}</p>
+<p><strong>Source Location (Share Drive):</strong> {{ device.source_location }}</p>
+
+{% if is_online %}
+    <div class="alert alert-success">{{ message }}</div>
+{% else %}
+    <div class="alert alert-danger">{{ message }}</div>
+{% endif %}
+
+<a href="{{ url_for('list_devices') }}" class="btn btn-secondary">Back to Devices</a>
+{% endblock %}

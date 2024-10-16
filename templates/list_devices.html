@@ -14,7 +14,8 @@
             <th>IP Subnet</th>
             <th>Owner Name</th>
             <th>Owner Contact</th>
-            <th>Actions</th>
+            <th>Edit</th>
+            <th>Ping</th>
         </tr>
     </thead>
     <tbody>
@@ -33,10 +34,12 @@
                 <!-- Add an "Edit" button that links to the edit page for each device -->
                 <a href="{{ url_for('edit_device', id=device.id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
             </td>
+            <td>
+                <!-- Add an "Ping" button that links to the ping page for each device -->
+                <a href="{{ url_for('ping_device', id=device.id) }}" class="btn btn-info">Ping</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-<a href="/add" class="btn btn-primary">Add Device</a>
-<a href="/upload" class="btn btn-primary">Upload CSV</a>
 {% endblock %}

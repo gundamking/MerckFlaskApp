@@ -1,16 +1,11 @@
-﻿hostname,site,serial_number,division,instrument_type,lab_number,ip_subnet,owner_name,owner_contact,configuration_details
-Device01,New York,SN001,Engineering,Temperature Sensor,Lab01,192.168.1.10,John Doe,johndoe@example.com,Config details for Temperature Sensor.
-Device02,San Francisco,SN002,Research,Pressure Gauge,Lab02,192.168.2.10,Jane Smith,janesmith@example.com,Config details for Pressure Gauge.
-Device03,London,SN003,Chemistry,Humidity Sensor,Lab03,192.168.3.10,Michael Brown,michaelb@example.com,Config details for Humidity Sensor.
-Device04,Tokyo,SN004,Physics,Light Meter,Lab04,192.168.4.10,Emily Davis,emilyd@example.com,Config details for Light Meter.
-Device05,Berlin,SN005,Biology,Sound Sensor,Lab05,192.168.5.10,Sarah Wilson,sarahw@example.com,Config details for Sound Sensor.
-Device06,Toronto,SN006,Engineering,pH Meter,Lab06,192.168.6.10,Robert Taylor,robertt@example.com,Config details for pH Meter.
-Device07,Sydney,SN007,Research,Thermocouple,Lab07,192.168.7.10,Alice Johnson,alicej@example.com,Config details for Thermocouple.
-Device08,Singapore,SN008,Chemistry,CO2 Detector,Lab08,192.168.8.10,David Martinez,davidm@example.com,Config details for CO2 Detector.
-Device09,Dubai,SN009,Physics,Flow Meter,Lab09,192.168.9.10,Nancy Lee,nancyl@example.com,Config details for Flow Meter.
-Device10,Paris,SN010,Biology,Motion Detector,Lab10,192.168.10.10,Brian Carter,brianc@example.com,Config details for Motion Detector.
-Device11,Sao Paulo,SN011,Engineering,Pressure Sensor,Lab11,192.168.11.10,Megan Lopez,meganl@example.com,Config details for Pressure Sensor.
-Device12,Mumbai,SN012,Research,O2 Sensor,Lab12,192.168.12.10,Samuel Baker,samuelb@example.com,Config details for O2 Sensor.
-Device13,Cape Town,SN013,Chemistry,Liquid Flow Sensor,Lab13,192.168.13.10,Hannah Green,hannahg@example.com,Config details for Liquid Flow Sensor.
-Device14,Moscow,SN014,Physics,Gas Analyzer,Lab14,192.168.14.10,Olivia White,oliviaw@example.com,Config details for Gas Analyzer.
-Device15,Hong Kong,SN015,Biology,Temperature Logger,Lab15,192.168.15.10,Jacob King,jacobk@example.com,Config details for Temperature Logger.
+﻿hostname,site,serial_number,division,instrument_type,lab_number,ip_address,ssh_username,ssh_password,source_location,owner_name,owner_contact,configuration_details
+Device1,SiteA,12345ABC,Division1,TypeA,Lab001,192.168.1.1,user1,password1,/mnt/share/device1,John Doe,johndoe@example.com,This is a test configuration for device 1.
+Device2,SiteB,12345DEF,Division2,TypeB,Lab002,192.168.1.2,user2,password2,/mnt/share/device2,Jane Smith,janesmith@example.com,This is a test configuration for device 2.
+Device3,SiteC,12345GHI,Division1,TypeA,Lab003,192.168.1.3,user3,password3,/mnt/share/device3,Jim Brown,jimbrown@example.com,This is a test configuration for device 3.
+Device4,SiteD,12345JKL,Division3,TypeC,Lab004,192.168.1.4,user4,password4,/mnt/share/device4,Alice Johnson,alicej@example.com,This is a test configuration for device 4.
+Device5,SiteA,12345MNO,Division2,TypeB,Lab005,192.168.1.5,user5,password5,/mnt/share/device5,Bob Martin,bobm@example.com,This is a test configuration for device 5.
+Device6,SiteB,12345PQR,Division3,TypeC,Lab006,192.168.1.6,user6,password6,/mnt/share/device6,Eve Adams,evea@example.com,This is a test configuration for device 6.
+Device7,SiteC,12345STU,Division1,TypeA,Lab007,192.168.1.7,user7,password7,/mnt/share/device7,Charlie Davis,charlied@example.com,This is a test configuration for device 7.
+Device8,SiteD,12345VWX,Division2,TypeB,Lab008,192.168.1.8,user8,password8,/mnt/share/device8,David Harris,davidh@example.com,This is a test configuration for device 8.
+Device9,SiteA,12345YZA,Division3,TypeC,Lab009,192.168.1.9,user9,password9,/mnt/share/device9,Fiona Green,fionag@example.com,This is a test configuration for device 9.
+Device10,SiteB,12345BCD,Division1,TypeA,Lab010,192.168.1.10,user10,password10,/mnt/share/device10,George King,georgek@example.com,This is a test configuration for device 10.

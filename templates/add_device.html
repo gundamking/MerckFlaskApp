@@ -2,48 +2,62 @@
 
 {% block content %}
 <h2>Add New Device</h2>
-<form method="POST" action="/add">
-    {{ form.hidden_tag() }}  <!-- Ensure CSRF token is included if CSRF protection is enabled -->
+<form method="POST">
+    {{ form.hidden_tag() }}  <!-- CSRF token -->
+
     <div class="form-group">
-        <label for="hostname">Hostname</label>
-        <input type="text" class="form-control" id="hostname" name="hostname" required>
+        {{ form.hostname.label }}  <!-- Label -->
+        {{ form.hostname(class="form-control") }}  <!-- Input field -->
     </div>
     <div class="form-group">
-        <label for="site">Site</label>
-        <input type="text" class="form-control" id="site" name="site" required>
+        {{ form.site.label }}
+        {{ form.site(class="form-control") }}
     </div>
     <div class="form-group">
-        <label for="serial_number">Serial Number</label>
-        <input type="text" class="form-control" id="serial_number" name="serial_number" required>
+        {{ form.serial_number.label }}
+        {{ form.serial_number(class="form-control") }}
     </div>
     <div class="form-group">
-        <label for="division">Division</label>
-        <input type="text" class="form-control" id="division" name="division" required>
+        {{ form.division.label }}
+        {{ form.division(class="form-control") }}
     </div>
     <div class="form-group">
-        <label for="instrument_type">Instrument Type</label>
-        <input type="text" class="form-control" id="instrument_type" name="instrument_type" required>
+        {{ form.instrument_type.label }}
+        {{ form.instrument_type(class="form-control") }}
     </div>
     <div class="form-group">
-        <label for="lab_number">Lab Number</label>
-        <input type="text" class="form-control" id="lab_number" name="lab_number" required>
+        {{ form.lab_number.label }}
+        {{ form.lab_number(class="form-control") }}
     </div>
     <div class="form-group">
-        <label for="ip_subnet">IP Subnet</label>
-        <input type="text" class="form-control" id="ip_subnet" name="ip_subnet" required>
+        {{ form.ip_address.label }}
+        {{ form.ip_address(class="form-control") }}
     </div>
     <div class="form-group">
-        <label for="owner_name">Owner Name</label>
-        <input type="text" class="form-control" id="owner_name" name="owner_name" required>
+        {{ form.ssh_username.label }}
+        {{ form.ssh_username(class="form-control") }}
     </div>
     <div class="form-group">
-        <label for="owner_contact">Owner Contact</label>
-        <input type="email" class="form-control" id="owner_contact" name="owner_contact" required>
+        {{ form.ssh_password.label }}
+        {{ form.ssh_password(class="form-control", type="password") }}
     </div>
     <div class="form-group">
-        <label for="configuration_details">Configuration Details</label>
-        <textarea class="form-control" id="configuration_details" name="configuration_details" rows="4"></textarea>
+        {{ form.shared_service.label }}
+        {{ form.shared_service(class="form-control") }}
     </div>
+    <div class="form-group">
+        {{ form.owner_name.label }}
+        {{ form.owner_name(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.owner_contact.label }}
+        {{ form.owner_contact(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.configuration_details.label }}
+        {{ form.configuration_details(class="form-control") }}
+    </div>
+
     <button type="submit" class="btn btn-primary">Add Device</button>
 </form>
 {% endblock %}
