@@ -3,7 +3,7 @@
 {% block content %}
 <h2>Add New Device</h2>
 <form method="POST" action="/add">
-    {{ csrf_token() }}  <!-- Ensure CSRF token is included if CSRF protection is enabled -->
+    {{ form.hidden_tag() }}  <!-- Ensure CSRF token is included if CSRF protection is enabled -->
     <div class="form-group">
         <label for="hostname">Hostname</label>
         <input type="text" class="form-control" id="hostname" name="hostname" required>
