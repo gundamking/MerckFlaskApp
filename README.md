@@ -49,6 +49,8 @@ The **INVICRO IPACS Sync Client** is used for synchronizing medical and imaging 
 - **File Upload**: CSV handling via Pandas
 
 ---
+![Screenshot of page](beaglebonepage.PNG)
+
 
 ## Installation
 
