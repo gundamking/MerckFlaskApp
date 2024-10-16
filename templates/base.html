@@ -4,23 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeagleBone Device Manager</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
     <style>
         body {
-            padding-top: 56px;
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
         }
-        .navbar-brand {
-            font-size: 1.5rem;
+        .navbar {
+            background-color: #0d7377; /* Teal background for navbar */
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important; /* White text for navbar */
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #333333 !important; /* Darker hover effect */
         }
         footer {
-            padding: 2rem;
+            background-color: #0d7377; /* Teal background for footer */
+            color: #ffffff;
+            padding: 1rem;
             text-align: center;
+        }
+        .btn-teal {
+            background-color: #0d7377;
+            color: #ffffff;
+            border: none;
+        }
+        .btn-teal:hover {
+            background-color: #14a19a;
+        }
+        .form-control {
+            background-color: #f8f9fa;
+            color: #000000;
+            border: 1px solid #cccccc;
+        }
+        .form-control:focus {
+            border-color: #0d7377;
+            box-shadow: none;
+        }
+        .table {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .table thead {
+            background-color: #0d7377;
+        }
+        .table th, .table td {
+            color: #000000; /* Black text for table headers and cells */
+        }
+        h2 {
+            color: #0d7377; /* Teal headings */
         }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/">BeagleBone Device Manager</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +78,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/upload">Upload CSV</a>
                     </li>
-                    <!-- Conditional Login/Logout based on user authentication -->
                     {% if current_user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -69,8 +109,8 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white mt-5">
-        <p>&copy; Merck & Co.</p>
+    <footer class="mt-5">
+        <p>&copy; 2024 BeagleBone Device Manager</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
